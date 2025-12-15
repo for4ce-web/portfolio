@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABDELRAHMAN AHMED'S PORTFOLIO</title>
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+/* ================= Floating Social ================= */
+.social-floating{
+  position:fixed;
+  left:25px;
+  bottom:30px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  z-index:9999;
+}
+
+.social-btn{
+  position:relative;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:22px;
+  text-decoration:none;
+  box-shadow:0 0 20px rgba(0,0,0,.4);
+  transition:.3s ease;
+}/* ================= Social Colored Glow ================= */
+.social-btn{
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+/* WhatsApp Glow */
+.social-btn.whatsapp:hover{
+  box-shadow:
+    0 0 15px rgba(37,211,102,.7),
+    0 0 35px rgba(37,211,102,.6),
+    0 0 60px rgba(37,211,102,.4);
+}
+
+/* Facebook Glow */
+.social-btn.facebook:hover{
+  box-shadow:
+    0 0 15px rgba(24,119,242,.7),
+    0 0 35px rgba(24,119,242,.6),
+    0 0 60px rgba(24,119,242,.4);
+}
+
+/* Instagram Glow */
+.social-btn.instagram:hover{
+  box-shadow:
+    0 0 15px rgba(221,42,123,.7),
+    0 0 35px rgba(221,42,123,.6),
+    0 0 60px rgba(221,42,123,.4);
+}
+
+/* Hover text */
+.social-btn::after{
+  content:attr(data-text);
+  position:absolute;
+  left:60px;
+  white-space:nowrap;
+  padding:8px 14px;
+  border-radius:20px;
+  background:rgba(10,15,25,.85);
+  backdrop-filter:blur(8px);
+  font-size:14px;
+  opacity:0;
+  pointer-events:none;
+  transform:translateX(-10px);
+  transition:.3s;
+}
+
+.social-btn:hover::after{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* Scale hover */
+.social-btn:hover{
+  transform:scale(1.1);
+}
+
+/* Colors */
+.social-btn.whatsapp{
+  background:#25D366;
+}
+.social-btn.facebook{
+  background:#1877F2;
+}
+.social-btn.instagram{
+  background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF,#515BD4);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Cairo',sans-serif;
+}
+
+/* ================= Theme ================= */
+body{
+  position: relative;
+  background:
+    url("https://res.cloudinary.com/dhlxk1qht/image/upload/v1765829221/adobe-creative-adobe-after-effects_giejjs.jpg")
+    no-repeat center/cover;
+  color:#fff;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* Blur Layer */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index:-1;
+}
+
+body.light{
+  background:#f4f6fa;
+  color:#111;
+}
+
+/* ================= Brand Card ================= */
+.brand-card{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:14px 36px;
+  font-weight:800;
+  letter-spacing:1px;
+  background:rgba(10,15,25,.45);
+  backdrop-filter:blur(14px);
+  border-radius:22px;
+  box-shadow:0 0 40px rgba(154,217,255,.45);
+  z-index:1000;
+}
+/* Brand clickable */
+.brand-link{
+  text-decoration:none;
+  color:#fff;
+}
+
+/* Hover Animation */
+.brand-card{
+  cursor:pointer;
+  transition: 
+    transform .4s ease,
+    box-shadow .4s ease,
+    letter-spacing .4s ease;
+}
+
+.brand-card:hover{
+  transform:translateX(-50%) scale(1.05);
+  letter-spacing:2px;
+  box-shadow:
+    0 0 25px rgba(154,217,255,.6),
+    0 0 60px rgba(154,217,255,.4);
+}
+
+/* ================= Navbar ================= */
+.main-navbar{
+  position:fixed;
+  top:95px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:26px;
+  padding:14px 34px;
+  background:rgba(5,8,15,.55);
+  backdrop-filter:blur(14px);
+  border-radius:22px;
+  box-shadow:0 0 30px rgba(154,217,255,.25);
+  z-index:900;
+}
+
+.main-navbar a{
+  text-decoration:none;
+  color:#fff;
+  font-size:15px;
+  font-weight:600;
+  opacity:.85;
+  transition:.3s;
+  white-space:nowrap;
+}
+.main-navbar a:hover{
+  opacity:1;
+  color:#9ad9ff;
+}
+/* ================= Navbar Hover Animation ================= */
+.main-navbar a{
+  position:relative;
+  padding:6px 10px;
+  border-radius:14px;
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    letter-spacing .35s ease,
+    background .35s ease;
+}
+
+/* Glow effect */
+.main-navbar a::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:14px;
+  background:rgba(154,217,255,.15);
+  opacity:0;
+  transition:.35s;
+  z-index:-1;
+}
+
+.main-navbar a:hover{
+  transform:scale(1.12);
+  letter-spacing:1px;
+  box-shadow:
+    0 0 20px rgba(154,217,255,.45),
+    0 0 40px rgba(154,217,255,.25);
+}
+
+.main-navbar a:hover::before{
+  opacity:1;
+}
+
+
+/* ================= Control Bar ================= */
+.control-bar{
+  position:fixed;
+  right:25px;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  padding:16px;
+  background:rgba(10,15,25,.45);
+  backdrop-filter:blur(14px);
+  border-radius:20px;
+  box-shadow:0 0 35px rgba(154,217,255,.45);
+  z-index:1000;
+}
+
+.control-bar button,
+.control-bar a{
+  width:44px;
+  height:44px;
+  border:none;
+  background:none;
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Language Menu */
+.lang-wrapper{position:relative;}
+.lang-menu{
+  position:absolute;
+  right:55px;
+  top:0;
+  display:none;
+  flex-direction:column;
+  background:rgba(10,15,25,.6);
+  backdrop-filter:blur(12px);
+  border-radius:12px;
+  box-shadow:0 0 25px rgba(154,217,255,.4);
+}
+.lang-menu span{
+  padding:10px 16px;
+  cursor:pointer;
+}
+.lang-menu span:hover{
+  background:rgba(154,217,255,.15);
+}
+
+/* ================= Home ================= */
+.home{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:60px;
+  padding:200px 80px 80px;
+  direction:ltr;
+}
+/* ================= Control Bar Hover Animation ================= */
+.control-bar button,
+.control-bar a{
+  position:relative;
+  border-radius:14px;
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    background .35s ease;
+}
+
+/* Glow background */
+.control-bar button::before,
+.control-bar a::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:14px;
+  background:rgba(154,217,255,.18);
+  opacity:0;
+  transition:.35s;
+  z-index:-1;
+}
+
+.control-bar button:hover,
+.control-bar a:hover{
+  transform:scale(1.15);
+  box-shadow:
+    0 0 20px rgba(154,217,255,.45),
+    0 0 40px rgba(154,217,255,.25);
+}
+
+.control-bar button:hover::before,
+.control-bar a:hover::before{
+  opacity:1;
+}
+
+/* ================== 🔥 التعديل هنا 🔥 ================== */
+/* Content يرجع عربي ويتزق شمال */
+.home > div:last-child{
+  direction:rtl;
+  text-align:right;
+  padding-right:100px; /* زق الكلام بعيد عن القايمة */
+}
+
+/* Image */
+.profile-img{
+  width:320px;
+  border-radius:22px;
+  border:3px solid #9ad9ff;
+  box-shadow:
+    0 0 15px rgba(154,217,255,.6),
+    0 0 40px rgba(154,217,255,.35);
+}
+
+.home h1{
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.home p{
+  line-height:1.9;
+  font-size:18px;
+  opacity:.9;
+  max-width:600px;
+}
+
+/* Tools */
+.tools{
+  display:flex;
+  gap:14px;
+  margin:20px 0;
+  flex-wrap:wrap;
+}
+.tools span{
+  padding:6px 14px;
+  border-radius:20px;
+  border:1px solid #9ad9ff;
+  background:rgba(154,217,255,.15);
+  font-size:14px;
+}
+
+/* Stats */
+.stats{
+  display:flex;
+  gap:40px;
+  margin-top:30px;
+}
+.stats div{text-align:center;}
+.stats strong{
+  font-size:32px;
+  color:#9ad9ff;
+}
+
+/* CTA */
+.cta{
+  display:inline-block;
+  margin-top:30px;
+  padding:12px 28px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#9ad9ff,#2b5876);
+  color:#000;
+  font-weight:700;
+  text-decoration:none;
+}
+/* ================= CTA Hover Animation ================= */
+.cta{
+  position:relative;
+  transition:
+    transform .4s ease,
+    box-shadow .4s ease,
+    letter-spacing .4s ease;
+}
+
+.cta:hover{
+  transform:scale(1.1);
+  letter-spacing:1px;
+  box-shadow:
+    0 0 25px rgba(154,217,255,.6),
+    0 0 60px rgba(154,217,255,.4);
+}
+
+/* ================= Responsive ================= */
+@media(max-width:900px){
+  .home{
+    grid-template-columns:1fr;
+    text-align:center;
+    direction:rtl;
+  }
+
+  .home > div:last-child{
+    padding-right:0; /* يرجع طبيعي على الموبايل */
+  }
+
+  .profile-img{
+    margin:0 auto;
+  }
+
+  .stats{
+    justify-content:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<a href="#home" class="brand-card brand-link">
+  ABDELRAHMAN AHMED'S PORTFOLIO
+</a>
+
+
+<nav class="main-navbar">
+  <a href="#">3D 🚀</a>
+  <a href="#">Advertisements 📢</a>
+  <a href="#">Animations 💼</a>
+  <a href="#">Reels 🎬</a>
+  <a href="#">TikTok Edits ♪</a>
+  <a href="#">Trailers ▶️🎬</a>
+   <a href="about.html">About🙋‍</a>
+</nav>
+
+<div class="control-bar">
+  <a href="#home"><i class="fa-solid fa-house"></i></a>
+  <button onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></button>
+  <div class="lang-wrapper">
+    <button onclick="toggleLang()"><i class="fa-solid fa-language"></i></button>
+    <div class="lang-menu" id="langMenu">
+      <span>العربية</span>
+      <span>English</span>
+    </div>
+  </div>
+</div>
+
+<section class="home" id="home">
+
+  <!-- Image -->
+  <div>
+    <img class="profile-img"
+      src="https://res.cloudinary.com/dhlxk1qht/image/upload/f_auto,q_auto,w_400/v1765828957/481070891_1692700391665435_8795645784675493657_n_zxunq2.jpg"
+      alt="Abdelrahman Ahmed">
+  </div>
+
+  <!-- Content -->
+  <div>
+    <h1>أهلاً بيك 👋</h1>
+
+    <div class="tools">
+      <span>After Effects</span>
+      <span>Premiere Pro</span>
+      <span>Photoshop</span>
+      <span>Illustrator</span>
+    </div>
+
+    <p>
+      اسمي <strong>عبدالرحمن أحمد</strong> من مصر، عمري <strong>19 سنة</strong>.
+      Video Editor عندي خبرة أكتر من <strong>سنتين</strong> في المونتاج،
+      اشتغلت على Reels وTikTok Edits والإعلانات والـ Animations <strong>و الmotion graphic</strong>
+      بأسلوب سينماتيك وانتقالات ناعمة تخلي الفيديو يعيش مع المشاهد هتلاقي هنا شغلي كتصنيفات من الشريط اللي فوق او تقدر تشوفها كاملة من خلال ضغطة على زر ( شوف أعمالي )
+    </p>
+
+    <div class="stats">
+      <div><strong>+2</strong><div>سنين خبرة</div></div>
+      <div><strong>+90</strong><div>فيديو</div></div>
+      <div><strong>+30</strong><div>عميل</div></div>
+    </div>
+
+    <a href="https://drive.google.com/drive/u/0/folders/17_47VncNOyMgim8QMA2lPj4_v5h1ODk5" class="cta">شوف أعمالي 🎬</a>
+  </div>
+
+</section>
+
+<script>
+function toggleTheme(){
+  document.body.classList.toggle("light");
+}
+function toggleLang(){
+  const m=document.getElementById("langMenu");
+  m.style.display = m.style.display==="flex" ? "none" : "flex";
+}
+</script>
+<!-- ================= Floating Social Icons ================= -->
+<div class="social-floating">
+
+  <a href="https://wa.link/m1039u"
+     target="_blank"
+     class="social-btn whatsapp"
+     data-text="+201014031067">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <a href="https://www.facebook.com/111abdoelrhman/"
+     target="_blank"
+     class="social-btn facebook"
+     data-text="facebook.com/111abdoelrhman">
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
+
+  <a href="https://www.instagram.com/abdoo._.ahmed/"
+     target="_blank"
+     class="social-btn instagram"
+     data-text="instagram.com/abdoo._.ahmed">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+</div>
+
+
+</body>
+</html>

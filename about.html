@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Abdelrahman Ahmed</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Cairo',sans-serif;
+}
+
+body{
+  background:
+    url("https://res.cloudinary.com/dhlxk1qht/image/upload/v1765829221/adobe-creative-adobe-after-effects_giejjs.jpg")
+    no-repeat center/cover;
+  color:#fff;
+  min-height:100vh;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  backdrop-filter:blur(6px);
+  z-index:-1;
+}
+
+/* ================= Brand Card ================= */
+.brand-card{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:14px 36px;
+  font-weight:800;
+  letter-spacing:1px;
+  background:rgba(10,15,25,.45);
+  backdrop-filter:blur(14px);
+  border-radius:22px;
+  box-shadow:0 0 40px rgba(154,217,255,.45);
+  z-index:1000;
+  cursor:pointer;
+  transition: 
+    transform .4s ease,
+    box-shadow .4s ease,
+    letter-spacing .4s ease;
+}
+
+.brand-card:hover{
+  transform:translateX(-50%) scale(1.05);
+  letter-spacing:2px;
+  box-shadow:
+    0 0 25px rgba(154,217,255,.6),
+    0 0 60px rgba(154,217,255,.4);
+}
+
+.brand-link{
+  text-decoration:none;
+  color:#fff;
+}
+
+
+.main-navbar{
+  position:fixed;
+  top:95px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:26px;
+  padding:14px 34px;
+  background:rgba(5,8,15,.55);
+  backdrop-filter:blur(14px);
+  border-radius:22px;
+  box-shadow:0 0 30px rgba(154,217,255,.25);
+  z-index:900;
+}
+
+.main-navbar a{
+  position:relative;
+  padding:6px 10px;
+  border-radius:14px;
+  text-decoration:none;
+  color:#fff;
+  font-size:15px;
+  font-weight:600;
+  opacity:.85;
+  white-space:nowrap;
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    letter-spacing .35s ease,
+    background .35s ease;
+}
+.main-navbar a::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:14px;
+  background:rgba(154,217,255,.15);
+  opacity:0;
+  transition:.35s;
+  z-index:-1;
+}
+
+.main-navbar a:hover{
+  transform:scale(1.12);
+  letter-spacing:1px;
+  opacity:1;
+  color:#9ad9ff;
+  box-shadow:
+    0 0 20px rgba(154,217,255,.45),
+    0 0 40px rgba(154,217,255,.25);
+}
+
+.main-navbar a:hover::before{
+  opacity:1;
+}
+
+/* ================= Page ================= */
+.about{
+  padding:200px 100px 120px;
+  max-width:1400px;
+  margin:auto;
+}
+
+.section{
+  margin-bottom:120px;
+}
+
+.section h2{
+  font-size:42px;
+  margin-bottom:20px;
+  color:#9ad9ff;
+}
+
+.section p{
+  font-size:18px;
+  line-height:1.9;
+  max-width:900px;
+  opacity:.9;
+}
+
+/* ================= Timeline ================= */
+.timeline{
+  margin-top:60px;
+  display:grid;
+  gap:30px;
+}
+.timeline-item{
+  padding:24px 30px;
+  border-radius:22px;
+  background:rgba(154,217,255,.12);
+  border:1px solid rgba(154,217,255,.35);
+  backdrop-filter:blur(12px);
+}
+.timeline-item h3{
+  color:#9ad9ff;
+  margin-bottom:10px;
+}
+/* ================= Hide On Scroll ================= */
+
+/* Brand */
+.brand-card.hide-on-scroll{
+  transform:translate(-50%,-120px);
+  opacity:0;
+  pointer-events:none;
+}
+
+/* Navbar */
+.main-navbar.hide-on-scroll{
+  transform:translate(-50%,-160px);
+  opacity:0;
+  pointer-events:none;
+}
+
+/* Smooth animation */
+.brand-card,
+.main-navbar{
+  transition:
+    transform .45s ease,
+    opacity .45s ease;
+}
+
+
+/* ================= Skills ================= */
+.skills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  margin-top:30px;
+}
+.skills span{
+  padding:10px 20px;
+  border-radius:22px;
+  border:1px solid #9ad9ff;
+  background:rgba(154,217,255,.15);
+}
+
+/* ================= Services ================= */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  margin-top:40px;
+}
+.service{
+  padding:30px;
+  border-radius:26px;
+  background:rgba(10,15,25,.5);
+  backdrop-filter:blur(14px);
+  box-shadow:0 0 35px rgba(154,217,255,.25);
+  transition:.4s;
+}
+.service:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 50px rgba(154,217,255,.45);
+}
+.service i{
+  font-size:34px;
+  color:#9ad9ff;
+  margin-bottom:14px;
+}
+
+/* ================= CTA ================= */
+.about-cta{
+  text-align:center;
+  margin-top:100px;
+}
+.about-cta a{
+  display:inline-block;
+  padding:16px 42px;
+  border-radius:40px;
+  background:linear-gradient(135deg,#9ad9ff,#2b5876);
+  color:#000;
+  font-weight:800;
+  text-decoration:none;
+  font-size:18px;
+  transition:.4s;
+}
+.about-cta a:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 40px rgba(154,217,255,.6);
+}
+
+/* ================= Floating Social ================= */
+.social-floating{
+  position:fixed;
+  left:25px;
+  bottom:30px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  z-index:9999;
+}
+
+.social-btn{
+  position:relative;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:22px;
+  text-decoration:none;
+  background:#333;
+  box-shadow:0 0 20px rgba(0,0,0,.4);
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+/* Scale hover */
+.social-btn:hover{
+  transform:scale(1.1);
+}
+
+/* Hover text */
+.social-btn::after{
+  content:attr(data-text);
+  position:absolute;
+  left:60px;
+  white-space:nowrap;
+  padding:8px 14px;
+  border-radius:20px;
+  background:rgba(10,15,25,.85);
+  backdrop-filter:blur(8px);
+  font-size:14px;
+  opacity:0;
+  pointer-events:none;
+  transform:translateX(-10px);
+  transition:.3s;
+}
+
+.social-btn:hover::after{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* WhatsApp */
+.social-btn.whatsapp{
+  background:#25D366;
+}
+.social-btn.whatsapp:hover{
+  box-shadow:
+    0 0 15px rgba(37,211,102,.7),
+    0 0 35px rgba(37,211,102,.6),
+    0 0 60px rgba(37,211,102,.4);
+}
+
+/* Facebook */
+.social-btn.facebook{
+  background:#1877F2;
+}
+.social-btn.facebook:hover{
+  box-shadow:
+    0 0 15px rgba(24,119,242,.7),
+    0 0 35px rgba(24,119,242,.6),
+    0 0 60px rgba(24,119,242,.4);
+}
+
+/* Instagram */
+.social-btn.instagram{
+  background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF,#515BD4);
+}
+.social-btn.instagram:hover{
+  box-shadow:
+    0 0 15px rgba(221,42,123,.7),
+    0 0 35px rgba(221,42,123,.6),
+    0 0 60px rgba(221,42,123,.4);
+}
+
+/* ================= Responsive ================= */
+@media(max-width:900px){
+  .about{padding:180px 30px}
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="brand-card brand-link">
+  ABDELRAHMAN AHMED'S PORTFOLIO
+</a>
+
+
+<nav class="main-navbar">
+  <a href="index.html">Home🏠</a>
+  <a href="#">3D 🚀</a>
+  <a href="#">Advertisements 📢</a>
+  <a href="#">Animations 💼</a>
+  <a href="#">Reels 🎬</a>
+  <a href="#">TikTok Edits ♪</a>
+  <a href="#">Trailers ▶️🎬</a>
+</nav>
+
+<section class="about">
+
+  <!-- Intro -->
+  <div class="section">
+    <h2>مين أنا؟</h2>
+    <p>
+      اسمي <strong>عبدالرحمن أحمد</strong>، Video Editor و Motion Designer من مصر.
+      شغفي بالمونتاج بدأ من سنين، واشتغلت على محتوى متنوع
+      من Reels و TikTok لحد الإعلانات والـ Animations السينماتيك.
+      هدفي دايمًا إني أقدّم فيديو يحكي قصة ويشد المشاهد من أول ثانية.
+    </p>
+  </div>
+
+  <!-- Timeline -->
+  <div class="section">
+    <h2>رحلتي</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>2022 – البداية</h3>
+        <p>تعلمت أساسيات المونتاج وبدأت شغل حر على سوشيال ميديا.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>2023 – احتراف</h3>
+        <p>اشتغلت مع عملاء حقيقيين وبدأت الإعلانات والموشن جرافيك.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>2024 – Branding & Cinematic</h3>
+        <p>تخصصت في الأسلوب السينماتيك وبناء هوية بصرية قوية.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills -->
+  <div class="section">
+    <h2>المهارات</h2>
+    <div class="skills">
+      <span>After Effects</span>
+      <span>Premiere Pro</span>
+      <span>Motion Graphics</span>
+      <span>Color Grading</span>
+      <span>Sound Design</span>
+      <span>Storytelling</span>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div class="section">
+    <h2>الخدمات</h2>
+    <div class="services">
+      <div class="service">
+        <i class="fa-solid fa-film"></i>
+        <h3>Video Editing</h3>
+        <p>مونتاج احترافي بأسلوب سينماتيك وانتقالات ناعمة.</p>
+      </div>
+      <div class="service">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <h3>Motion Graphics</h3>
+        <p>أنيميشن جذاب يعبر عن الفكرة ويقوي البراند.</p>
+      </div>
+      <div class="service">
+        <i class="fa-solid fa-bullhorn"></i>
+        <h3>Advertisements</h3>
+        <p>إعلانات قصيرة تخلي البراند يعلق في دماغ الجمهور.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="about-cta">
+    <a href="https://wa.link/m1039u">تواصل معايا دلوقتي 🚀</a>
+  </div>
+
+</section>
+<div class="social-floating">
+
+  <a href="https://wa.link/m1039u"
+     target="_blank"
+     class="social-btn whatsapp"
+     data-text="+201014031067">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <a href="https://www.facebook.com/111abdoelrhman/"
+     target="_blank"
+     class="social-btn facebook"
+     data-text="facebook.com/111abdoelrhman">
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
+
+  <a href="https://www.instagram.com/abdoo._.ahmed/"
+     target="_blank"
+     class="social-btn instagram"
+     data-text="instagram.com/abdoo._.ahmed">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+</div>
+
+<script>
+let lastScroll = 0;
+
+const brand = document.querySelector(".brand-card");
+const navbar = document.querySelector(".main-navbar");
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+
+  if(currentScroll > lastScroll && currentScroll > 120){
+    // Scroll Down
+    brand.classList.add("hide-on-scroll");
+    navbar.classList.add("hide-on-scroll");
+  }else{
+    // Scroll Up
+    brand.classList.remove("hide-on-scroll");
+    navbar.classList.remove("hide-on-scroll");
+  }
+
+  lastScroll = currentScroll;
+});
+</script>
+
+</body>
+</html>

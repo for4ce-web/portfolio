@@ -130,12 +130,15 @@ body::before{
   inset:0;
   background:rgba(0,0,0,.45);
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   z-index:-1;
+  transition:background .4s ease;
+}
+body.light::before{
+  background:rgba(255,255,255,.35);
 }
 
+
 body.light{
-  background:#f4f6fa;
   color:#111;
 }
 
@@ -564,6 +567,7 @@ function toggleLang(){
 
 </body>
 </html>
+
 
 
 

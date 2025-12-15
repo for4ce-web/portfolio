@@ -340,9 +340,56 @@ body::before{
 }
 
 /* ================= Responsive ================= */
-@media(max-width:900px){
-  .about{padding:180px 30px}
+@media (max-width:768px){
+
+  /* 1️⃣ خفف أو شيل الثوابت */
+  .control-bar{
+    display:none;
+  }
+
+  .social-floating{
+    left:10px;
+    bottom:15px;
+    transform:scale(.85);
+  }
+
+  /* 2️⃣ خلي البراند والناف بار طبيعيين */
+  .brand-card,
+  .main-navbar{
+    position:relative;
+    top:auto;
+    left:auto;
+    transform:none;
+    margin:15px auto;
+  }
+
+  /* 3️⃣ Navbar ينزل تحت بعضه */
+  .main-navbar{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+    padding:14px;
+  }
+
+  .main-navbar a{
+    font-size:14px;
+  }
+
+  /* 4️⃣ البادينج يتظبط */
+  .home{
+    padding:120px 20px 40px;
+  }
+
+  .about{
+    padding:140px 20px 60px;
+  }
+
+  /* 5️⃣ الصورة تصغر */
+  .profile-img{
+    width:240px;
+  }
 }
+
 </style>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ENC2S911Q3"></script>
@@ -495,4 +542,5 @@ window.addEventListener("scroll", () => {
 
 </body>
 </html>
+
 

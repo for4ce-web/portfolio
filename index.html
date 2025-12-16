@@ -361,7 +361,31 @@ body.light{
   box-shadow:
     0 0 15px rgba(154,217,255,.6),
     0 0 40px rgba(154,217,255,.35);
+
+  transition:
+    transform .5s ease,
+    box-shadow .5s ease;
 }
+.profile-img:hover{
+  transform: scale(1.08) rotate(1deg);
+  box-shadow:
+    0 0 25px rgba(154,217,255,.8),
+    0 0 60px rgba(154,217,255,.6),
+    0 0 90px rgba(154,217,255,.4);
+}
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.profile-img{
+  animation: float 4s ease-in-out infinite;
+}
+.profile-img:hover{
+  animation-play-state: paused;
+}
+
 
 .home h1{
   font-size:42px;
@@ -627,6 +651,7 @@ function toggleLang(){
 
 </body>
 </html>
+
 
 
 
